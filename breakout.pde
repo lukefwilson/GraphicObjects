@@ -9,8 +9,8 @@ ArrayList<GRect> bricks;
 
 void setup() {
   size(600, 600);
-  screen = new GraphicsProgram();
-  
+  screen = new GraphicsProgram(); // the GraphicsProgram will handle drawing your GObjects once you've added them to it
+
   livesLeft = 2;
 
   ball = new GOval(width/2, height-100, 20, 20);
@@ -27,14 +27,14 @@ void draw() {
   background(150);
 
   positionPaddle();
-  
+
   if (livesLeft >= 0) moveBall();
 
   checkPaddleCollision();
   checkBrickCollisions();
   checkDeadBall();
 
-  screen.display();
+  screen.display(); // Hopefully this will not have to be in here once the GraphicsProgram is part of a library
 }
 
 void resetBall() {
@@ -44,7 +44,7 @@ void resetBall() {
 
 void randomizeBallVelocity() {
   ball.xVel = random(2, 4);
-  ball.yVel = random (2, 4); 
+  ball.yVel = random (2, 4);
 }
 
 void setUpBricks() {
@@ -123,8 +123,14 @@ void checkBrickCollisions() {
 
 void checkDeadBall() {
   if (ball.getBottom() > height) {
-     livesLeft--;
-     resetBall();
+    livesLeft--;
+    resetBall();
+    println("lives left:", livesLeft);
+    if (livesLeft < 0) {
+      println("Game Over");
+      GLabel gg = new GLabel("Game Over!", width/2, height/2, 100, 100);
+      screen.addObject(gg);
+    }
   }
 }
 
