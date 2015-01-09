@@ -16,6 +16,7 @@ ___This is a work in progress, and not currently set up as a library. The main f
 - GLabel
 - GSprite (images)
 - GLine
+- GObjects --> z-index
 - add simple collision function to GraphicsProgram
 
 ### Should have:
