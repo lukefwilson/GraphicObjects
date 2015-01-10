@@ -23,10 +23,16 @@ void setup() {
   paddle = new GRect(width/2, height-50, 100, 10);
   screen.addObject(paddle);
   
+  // just to test GLine
   line = new GLine(500, 500, 100, 100);
   screen.addObject(line);
   line.showBoundingBox = true;
-  println(line.getX());
+
+  // just to test GSprite
+  GSprite sprite = new GSprite("ship.png", 0, 0, 250, 170);
+  sprite.setBottom(height);
+  sprite.setX(width/2);
+  screen.addObject(sprite);
 
   setUpLivesLeftLabel();
   setUpBricks();
