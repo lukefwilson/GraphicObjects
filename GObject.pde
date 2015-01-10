@@ -1,3 +1,5 @@
+public static final int NO_STROKE = -1;
+
 public class GObject {
   float xPos;
   float yPos;
@@ -10,6 +12,8 @@ public class GObject {
   float strokeSize;
   float rotation;
   
+  boolean showBoundingBox;
+  
   GObject(float initX, float initY, float initWidth, float initHeight) {
     xPos = initX;
     yPos = initY;
@@ -21,11 +25,28 @@ public class GObject {
     strokeColor = color(0);
     xVel = 0;
     yVel = 0;
-    strokeSize = 0;
+    strokeSize = NO_STROKE;
+    showBoundingBox = false;
   }
   
+  // override this and use super() to get the basic GObject styles
   void display() {
-    // override  
+    translate(getX(), getY());
+    rotate(getRotation()); 
+    
+    if (showBoundingBox) {
+      fill(color(127));
+      rectMode(CENTER);
+      rect(0, 0, getWidth(), getHeight());
+    }
+    
+    fill(getFillColor());
+    stroke(getStrokeColor());
+    if (getStrokeSize() == NO_STROKE) {
+      noStroke();  
+    } else {
+      strokeWeight(getStrokeSize());
+    }
   }
   
   void setVel(float newXVel, float newYVel) {
@@ -150,6 +171,10 @@ public class GObject {
   
   void setStrokeSize(float newStrokeSize) {
     strokeSize = newStrokeSize; 
+  }
+  
+  void removeStroke() {
+    strokeSize = NO_STROKE; 
   }
   
   float getRotation() {
