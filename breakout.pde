@@ -1,10 +1,11 @@
 GraphicsProgram screen;
 
+int livesLeft;
+
 GOval ball;
 GRect paddle;
 GLabel livesLeftLabel;
-
-int livesLeft;
+GLine line;
 
 ArrayList<GRect> bricks;
 
@@ -21,6 +22,11 @@ void setup() {
 
   paddle = new GRect(width/2, height-50, 100, 10);
   screen.addObject(paddle);
+  
+  line = new GLine(500, 500, 100, 100);
+  screen.addObject(line);
+  line.showBoundingBox = true;
+  println(line.getX());
 
   setUpLivesLeftLabel();
   setUpBricks();
