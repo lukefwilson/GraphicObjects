@@ -2,6 +2,7 @@ GraphicsProgram screen;
 
 GOval ball;
 GRect paddle;
+GLabel label;
 
 int livesLeft;
 
@@ -13,12 +14,18 @@ void setup() {
 
   livesLeft = 2;
 
-  ball = new GOval(width/2, height-100, 20, 20);
+  ball = new GOval(width/2, height-200, 20, 20);
+  ball.setFillColor(color(0,150,255));
   randomizeBallVelocity();
   screen.addObject(ball);
 
   paddle = new GRect(width/2, height-50, 100, 10);
   screen.addObject(paddle);
+  
+  label = new GLabel("heyser\njkladklfdz", 300, 300);
+  label.setFillColor(color(100, 0, 100));
+  label.showBoundingBox = true;
+  screen.addObject(label);
 
   setUpBricks();
 }
@@ -38,13 +45,13 @@ void draw() {
 }
 
 void resetBall() {
-  ball.moveTo(width/2, height-100);
+  ball.moveTo(width/2, height-200);
   randomizeBallVelocity();
 }
 
 void randomizeBallVelocity() {
   ball.xVel = random(2, 4);
-  ball.yVel = random (2, 4);
+  ball.yVel = random(2, 4);
 }
 
 void setUpBricks() {
