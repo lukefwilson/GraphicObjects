@@ -32,6 +32,7 @@ void setup() {
   GSprite sprite = new GSprite("ship.png", 0, 0, 250, 170);
   sprite.setBottom(height);
   sprite.setX(width/2);
+  sprite.setTintColor(color(255, 0, 0, 100));
   screen.addObject(sprite);
 
   setUpLivesLeftLabel();
