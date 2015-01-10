@@ -10,12 +10,11 @@ ___This is a work in progress, and not currently set up as a library. The main f
 - GObject
   - GOval
   - GRect
-  - GLabel (WIP)
+  - GLabel
+  - GLine
 
 ### Need to have:
-- GLabel
 - GSprite (images)
-- GLine
 - GObjects --> z-index
 - add simple collision function to GraphicsProgram
 
@@ -23,6 +22,7 @@ ___This is a work in progress, and not currently set up as a library. The main f
 - GPoly
 - GTriangle
 - GObjects --> scale
+- GObjects --> anchor points
 
 ### Cool to have: (future)
 - GObject.addChild() [add children to other GObjects, allowing multi-shape objects]
