@@ -13,10 +13,15 @@ ___This is a work in progress, and not currently set up as a library. The main f
   - GLabel
   - GLine
   - GSprite
+- GUtil
+  - average
+  - difference
+  - midpoint
+  - distance
+  - objectCollision (bounding rect over rect)
 
 ### Need to have:
 - GObjects --> z-index
-- add simple collision function to GraphicsProgram
 
 ### Should have:
 - GPoly
