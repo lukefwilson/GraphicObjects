@@ -2,7 +2,7 @@ GraphicsProgram screen;
 
 GOval ball;
 GRect paddle;
-GLabel label;
+GLabel livesLeftLabel;
 
 int livesLeft;
 
@@ -15,18 +15,14 @@ void setup() {
   livesLeft = 2;
 
   ball = new GOval(width/2, height-200, 20, 20);
-  ball.setFillColor(color(0,150,255));
+  ball.setFillColor(color(0, 150, 255));
   randomizeBallVelocity();
   screen.addObject(ball);
 
   paddle = new GRect(width/2, height-50, 100, 10);
   screen.addObject(paddle);
-  
-  label = new GLabel("heyser\njkladklfdz", 300, 300);
-  label.setFillColor(color(100, 0, 100));
-  label.showBoundingBox = true;
-  screen.addObject(label);
 
+  setUpLivesLeftLabel();
   setUpBricks();
 }
 
@@ -74,6 +70,16 @@ void setUpBricks() {
       bricks.add(brick);
     }
   }
+}
+
+void setUpLivesLeftLabel() {
+  livesLeftLabel = new GLabel("Lives: ", 0, 0);
+  updateLivesLeftLabel();
+  livesLeftLabel.setFillColor(color(100, 0, 100));
+  livesLeftLabel.showBoundingBox = true;
+  livesLeftLabel.setLeft(0);
+  livesLeftLabel.setBottom(height);
+  screen.addObject(livesLeftLabel);
 }
 
 void positionPaddle() {
@@ -132,13 +138,17 @@ void checkDeadBall() {
   if (ball.getBottom() > height) {
     livesLeft--;
     resetBall();
-    println("lives left:", livesLeft);
+    updateLivesLeftLabel();
     if (livesLeft < 0) {
       println("Game Over");
       GLabel gg = new GLabel("Game Over!", width/2, height/2, 100, 100);
       screen.addObject(gg);
     }
   }
+}
+
+void updateLivesLeftLabel() {
+  if (livesLeft >= 0) livesLeftLabel.setText("Lives: " + livesLeft);
 }
 
 boolean objectsAreColliding(GObject obj1, GObject obj2) {
@@ -154,4 +164,3 @@ boolean objectsAreColliding(GObject obj1, GObject obj2) {
 
   return true;
 }
-
