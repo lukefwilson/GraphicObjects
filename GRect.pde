@@ -4,12 +4,8 @@ public class GRect extends GObject {
   }
 
   void display() {
+    super.display();
     rectMode(CENTER);
-    fill(getFillColor());
-    stroke(getStrokeColor());
-    strokeWeight(getStrokeSize());
-    translate(getX(), getY());
-    rotate(getRotation());
     
     rect(0, 0, widthVal, heightVal); 
     

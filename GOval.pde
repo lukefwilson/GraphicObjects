@@ -4,12 +4,8 @@ public class GOval extends GObject {
   }
 
   void display() {
+    super.display();
     ellipseMode(CENTER);
-    fill(getFillColor());
-    stroke(getStrokeColor());
-    strokeWeight(getStrokeSize());
-    translate(getX(), getY());
-    rotate(getRotation());
     
     ellipse(0, 0, getWidth(), getHeight());     
     
