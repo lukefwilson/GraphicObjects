@@ -12,9 +12,9 @@ ___This is a work in progress, and not currently set up as a library. The main f
   - GRect
   - GLabel
   - GLine
+  - GSprite
 
 ### Need to have:
-- GSprite (images)
 - GObjects --> z-index
 - add simple collision function to GraphicsProgram
 
