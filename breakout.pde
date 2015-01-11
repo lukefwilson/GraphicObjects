@@ -17,6 +17,7 @@ void setup() {
 
   ball = new GOval(width/2, height-200, 20, 20);
   ball.setFillColor(color(0, 150, 255));
+  ball.setZIndex(100);
   randomizeBallVelocity();
   screen.addObject(ball);
 

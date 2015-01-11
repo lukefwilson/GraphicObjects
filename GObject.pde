@@ -11,6 +11,7 @@ public class GObject {
   color strokeColor;
   float strokeSize;
   float rotation;
+  int zIndex;
   
   boolean showBoundingBox;
   
@@ -27,6 +28,7 @@ public class GObject {
     yVel = 0;
     strokeSize = NO_STROKE;
     showBoundingBox = false;
+    zIndex = 0;
   }
   
   // override this and use super() to get the basic GObject styles
@@ -184,5 +186,12 @@ public class GObject {
   void setRotation(float newRotation) {
     rotation = newRotation; 
   }
+  
+  int getZIndex() {
+    return zIndex; 
+  }
+  
+  void setZIndex(int newZIndex) {
+    zIndex = newZIndex; 
+  }
 }
-

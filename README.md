@@ -21,7 +21,7 @@ ___This is a work in progress, and not currently set up as a library. The main f
   - objectCollision (bounding rect over rect)
 
 ### Need to have:
-- GObjects --> z-index
+- Compiled library version of this code
 
 ### Should have:
 - GPoly
