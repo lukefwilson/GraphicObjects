@@ -1,3 +1,5 @@
+import GraphicObjects.library.*;
+
 GraphicsProgram screen;
 
 int livesLeft;
@@ -11,26 +13,26 @@ ArrayList<GRect> bricks;
 
 void setup() {
   size(600, 600);
-  screen = new GraphicsProgram(); // the GraphicsProgram will handle drawing your GObjects once you've added them to it
+  screen = new GraphicsProgram(this); // the GraphicsProgram will handle drawing your GObjects once you've added them to it
 
   livesLeft = 2;
 
-  ball = new GOval(width/2, height-200, 20, 20);
+  ball = new GOval(this, width/2, height-200, 20, 20);
   ball.setFillColor(color(0, 150, 255));
   ball.setZIndex(100);
   randomizeBallVelocity();
   screen.addObject(ball);
 
-  paddle = new GRect(width/2, height-50, 100, 10);
+  paddle = new GRect(this, width/2, height-50, 100, 10);
   screen.addObject(paddle);
   
   // just to test GLine
-  line = new GLine(500, 500, 100, 100);
+  line = new GLine(this, 500, 500, 100, 100);
   screen.addObject(line);
-  line.showBoundingBox = true;
+  line.setShowBoundingBox(true);
 
   // just to test GSprite
-  GSprite sprite = new GSprite("ship.png", 0, 0, 250, 170);
+  GSprite sprite = new GSprite(this, "ship.png", 0, 0, 250, 170);
   sprite.setBottom(height);
   sprite.setX(width/2);
   sprite.setTintColor(color(255, 0, 0, 100));
@@ -60,8 +62,7 @@ void resetBall() {
 }
 
 void randomizeBallVelocity() {
-  ball.xVel = random(2, 4);
-  ball.yVel = random(2, 4);
+  ball.setVel(random(2, 4), random(2, 4));
 }
 
 void setUpBricks() {
@@ -79,7 +80,7 @@ void setUpBricks() {
       float xPos = column * horizontalSpacePerBrick + (brickWidth/2) + (horizontalSpacePerBrick-brickWidth)/2;
       float yPos = row * verticalSpacePerBrick + (brickHeight/2) + (verticalSpacePerBrick-brickHeight)/2;
 
-      GRect brick = new GRect(xPos, yPos, brickWidth, brickHeight);
+      GRect brick = new GRect(this, xPos, yPos, brickWidth, brickHeight);
       screen.addObject(brick);
       bricks.add(brick);
     }
@@ -87,10 +88,10 @@ void setUpBricks() {
 }
 
 void setUpLivesLeftLabel() {
-  livesLeftLabel = new GLabel("Lives: ", 0, 0);
+  livesLeftLabel = new GLabel(this, "Lives: ", 0, 0);
   updateLivesLeftLabel();
   livesLeftLabel.setFillColor(color(100, 0, 100));
-  livesLeftLabel.showBoundingBox = true;
+  livesLeftLabel.setShowBoundingBox(true);
   livesLeftLabel.setLeft(0);
   livesLeftLabel.setBottom(height);
   screen.addObject(livesLeftLabel);
@@ -155,7 +156,7 @@ void checkDeadBall() {
     updateLivesLeftLabel();
     if (livesLeft < 0) {
       println("Game Over");
-      GLabel gg = new GLabel("Game Over!", width/2, height/2, 100, 100);
+      GLabel gg = new GLabel(this, "Game Over!", width/2, height/2, 100, 100);
       screen.addObject(gg);
     }
   }

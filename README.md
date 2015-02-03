@@ -1,4 +1,4 @@
-# graphic-objects: for [Processing](https://www.processing.org)
+# GraphicObjects: for [Processing](https://www.processing.org)
 This library allows you to hold objects of 2d primitives for object oriented drawing and basic game building. Each GObject holds its own properties (position, color, rotation, etc.). You then add the GObjects to your GraphicsProgram, which handles drawing them.
 
 GObjects are designed with 2d games in mind. They have `xVel`ocity and `yVel`ocity fields, and convenience functions for moving them.
@@ -19,9 +19,6 @@ ___This is a work in progress, and not currently set up as a library. The main f
   - midpoint
   - distance
   - objectCollision (bounding rect over rect)
-
-### Need to have:
-- Compiled library version of this code
 
 ### Should have:
 - GPoly
