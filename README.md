@@ -3,6 +3,7 @@ This library allows you to hold objects of 2d primitives for object oriented dra
 
 GObjects are designed with 2d games in mind. They have `xVel`ocity and `yVel`ocity fields, and convenience functions for moving them.
 
+This library was built to teach object oriented programming at [StreetCode Academy](http://www.liveinpeace.org/streetcode-academy/). 
 
 
 1. [Download the .zip](https://github.com/lukefwilson/GraphicObjects/raw/master/distribution/GraphicObjects-1/download/GraphicObjects.zip)
