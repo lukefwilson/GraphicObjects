@@ -76,6 +76,8 @@ void draw() {
 - GObjects --> scale
 - GObjects --> anchor points
 - Documentation
+- Get all screen objects and remove all screen objects
+
 
 ### Cool to have: (future)
 - GObject.addChild() [add children to other GObjects, allowing multi-shape objects]
